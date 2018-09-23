@@ -6,7 +6,7 @@ class Block extends Component {
     super(props)
 
     this.state = {
-      doors: [
+      doors: props.doors ? props.doors : [
         [ 1, 1 ],
         [ 0, 0 ],
         [ 1, 0 ],
@@ -26,7 +26,7 @@ class Block extends Component {
   render() {
     let { doors } = this.state
     return (
-      <section className="block" style={{"position":"absolute", "right": "40%"}}>
+      <section className="block">
         <SubBlock doors={[ doors[11], null, null, doors[0] ]} number="1" />
         <SubBlock doors={[ doors[1], null, null, null ]} number="2" />
         <SubBlock doors={[ doors[2], doors[3], null, null ]} number="3" />

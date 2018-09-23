@@ -17,8 +17,6 @@ class SubBlock extends Component {
   }
   */
   createAndOpenDoors(doors) {
-    const size = 5
-    let open = false
     let doorsDOM = []
 
     for(let i=0; i<4; i++) {
@@ -48,7 +46,6 @@ class SubBlock extends Component {
     @returns {DOM} - the dom of the door
   */
   makeDoor(side, open, wall) {
-    const { number } = this.props
     let size = "3px"
     let color = open ? "green" : "red"
     color = wall ? "black" : color
@@ -66,26 +63,16 @@ class SubBlock extends Component {
     }
 
     return (
-      <span style={styling} key={Math.random()*(side+1)*1000}>
-
-      </span>
+      <span style={styling} key={Math.random()*(side+1)*1000}></span>
     )
   }
 
   render() {
     const { doors } = this.state
     const { number } = this.props
-    let r = Math.floor((Math.random()*150))
-    let g = Math.floor((Math.random()*150))
-    let b = Math.floor((Math.random()*255)+150)
-    let randomColor = `rgb(${r},${g},${b})`
-
-    let subBlockStyle = {
-      background: "#aaaaff"
-    }
 
     return (
-      <section className="sub-block" style={subBlockStyle}>
+      <section className="sub-block">
         {doors}
         <span>{number}</span>
       </section>
