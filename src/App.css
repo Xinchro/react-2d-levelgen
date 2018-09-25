@@ -49,14 +49,46 @@
   justify-content: center;
 }
 
-.sub-block .open {
+.sub-block .door {
+  display: block;
+  position: absolute;
+  top: initial;
+  right: initial;
+  bottom: initial;
+  left: initial;
+}
+
+.sub-block .door.open {
   background: green;
 }
 
-.sub-block .closed {
+.sub-block .door.closed {
   background: red;
 }
 
-.sub-block .wall {
+.sub-block .door.wall {
   background: black;
+}
+
+.sub-block .door.horizontal {
+  width: 100%;
+  height: 3px;
+}
+
+.sub-block .door.vertical {
+  width: 3px;
+  height: 100%;
+}
+
+.sub-block .door.top {
+  top: 0;
+}
+.sub-block .door.right {
+  right: 0;
+}
+.sub-block .door.bottom {
+  bottom: 0;
+}
+.sub-block .door.left {
+  left: 0;
 }

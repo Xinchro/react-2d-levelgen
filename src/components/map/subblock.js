@@ -46,23 +46,41 @@ class SubBlock extends Component {
     @returns {DOM} - the dom of the door
   */
   makeDoor(side, open, wall) {
-    let size = "3px"
+    let classes = []
+
     let status = open ? "open" : "closed"
+
     status = wall ? "wall" : status
 
-    let styling = {
-      height: side === 0 || side === 2 ? size : "100%",
-      width: side === 1 || side === 3 ? size : "100%",
-      top: side === 0 ? "0" : "initial",
-      right: side === 1 ? "0" : "initial",
-      bottom: side === 2 ? "0" : "initial",
-      left: side === 3 ? "0" : "initial",
-      display: "block",
-      position: "absolute"
+    const direction = side === 0 || side === 2 ? "horizontal" : "vertical"
+
+    let position = "top"
+
+    switch(side) {
+      case 0:
+        position = "top"
+        break
+      case 1:
+        position = "right"
+        break
+      case 2:
+        position = "bottom"
+        break
+      case 3:
+        position = "left"
+        break
+      default:
+        console.error("door placement error")
+        position = "top"
     }
 
+    classes.push("door")
+    classes.push(status)
+    classes.push(direction)
+    classes.push(position)
+
     return (
-      <span className={status} style={styling} key={Math.random()*(side+1)*1000}></span>
+      <span className={classes.join(" ")} key={Math.random()*(side+1)*1000}></span>
     )
   }
 
