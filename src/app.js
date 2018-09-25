@@ -8,7 +8,6 @@ import { generate } from './generator'
 class App extends Component {
   constructor(props) {
     super(props)
-    console.log("hello!")
 
     this.reGen = this.reGen.bind(this)
     this.state = {
@@ -23,10 +22,11 @@ class App extends Component {
   */
   genBlocks(amount) {
     let blocks = []
+    const gendBlocks = generate(5)
 
     for (let i=0; i<amount; i++) {
-      blocks.push(<Block doors={
-        generate()} key={Math.random()*1*1000} />
+      blocks.push(<Block pos={gendBlocks[i].pos} doors={
+        gendBlocks[i].doors} key={Math.random()*1*1000} />
       )
     }
     return blocks
