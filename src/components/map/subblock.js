@@ -91,10 +91,10 @@ class SubBlock extends Component {
     return (
       <section className="sub-block">
         {doors}
-        <span>{number}</span>
+        <span></span>
       </section>
     );
   }
 }
 
-export default SubBlock;
+export { SubBlock };

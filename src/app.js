@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import logo from './logo.svg'
 import './app.css'
-import Block from './components/map/block.js'
+import { Block } from './components'
+import { generate } from './generator'
 //import mapData from './example-structure.json'
 
 class App extends Component {
@@ -25,20 +26,7 @@ class App extends Component {
 
     for (let i=0; i<amount; i++) {
       blocks.push(<Block doors={
-        [
-          [ Math.round(Math.random()), Math.round(Math.random()) ],
-          [ Math.round(Math.random()), Math.round(Math.random()) ],
-          [ Math.round(Math.random()), Math.round(Math.random()) ],
-          [ Math.round(Math.random()), Math.round(Math.random()) ],
-          [ Math.round(Math.random()), Math.round(Math.random()) ],
-          [ Math.round(Math.random()), Math.round(Math.random()) ],
-          [ Math.round(Math.random()), Math.round(Math.random()) ],
-          [ Math.round(Math.random()), Math.round(Math.random()) ],
-          [ Math.round(Math.random()), Math.round(Math.random()) ],
-          [ Math.round(Math.random()), Math.round(Math.random()) ],
-          [ Math.round(Math.random()), Math.round(Math.random()) ],
-          [ Math.round(Math.random()), Math.round(Math.random()) ]
-        ]} key={Math.random()*1*1000} />
+        generate()} key={Math.random()*1*1000} />
       )
     }
     return blocks

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SubBlock from './subblock.js';
+import { SubBlock } from './subblock.js';
 
 class Block extends Component {
   constructor(props) {
@@ -43,4 +43,4 @@ class Block extends Component {
   }
 }
 
-export default Block;
+export { Block };
