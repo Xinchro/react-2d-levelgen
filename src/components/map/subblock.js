@@ -47,8 +47,8 @@ class SubBlock extends Component {
   */
   makeDoor(side, open, wall) {
     let size = "3px"
-    let color = open ? "green" : "red"
-    color = wall ? "black" : color
+    let status = open ? "open" : "closed"
+    status = wall ? "wall" : status
 
     let styling = {
       height: side === 0 || side === 2 ? size : "100%",
@@ -57,13 +57,12 @@ class SubBlock extends Component {
       right: side === 1 ? "0" : "initial",
       bottom: side === 2 ? "0" : "initial",
       left: side === 3 ? "0" : "initial",
-      background: color,
       display: "block",
       position: "absolute"
     }
 
     return (
-      <span style={styling} key={Math.random()*(side+1)*1000}></span>
+      <span className={status} style={styling} key={Math.random()*(side+1)*1000}></span>
     )
   }
 
